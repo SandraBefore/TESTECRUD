@@ -50,7 +50,12 @@ class ClientesController extends Controller
     function excluir($id)
     {
         $cliente = cliente::findOrFail($id);
-         return view('welcome');
+
+        $cliente->delete();
+
+        Session::flash('mensagem_sucesso', 'Cliente excluído com sucesso!');
+
+        return Redirect::to('clientes/');
     }
 
 }

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 
@@ -32,4 +32,4 @@ Route::patch('clientes/{cliente}', 'ClientesController@atualizar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::delete('clientes/{cliente}/excluir', 'ClienteController@excluir');
+Route::delete('clientes/{cliente}/excluir', 'ClientesController@excluir');

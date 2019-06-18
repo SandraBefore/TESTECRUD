@@ -5,17 +5,24 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Clientes
-                    <a class="pull-right" href="{{url('clientes/novo')}}">Novo Cliente</a>
+                    <div class="card-header">
+
+                        Clientes
+
+                        <a class="float-right" href="{{url('clientes/novo')}}">Novo Cliente</a>
 
                     </div>
 
                     <div class="card-body">
-                        Listagem de Clientes
+                        <h3>Listagem de Clientes</h3>
+
+                        @if ( Session::has('mensagem_sucesso'))
+                            <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
+                        @endif
 
                         <table class = 'table'>
 
-                            <th> Nome</th>
+                            <th>Nome</th>
                             <th>Endereço</th>
                             <th>Numero</th>
                             <th>Ações</th>
