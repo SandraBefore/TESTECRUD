@@ -81,6 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">Crud Básico em Laravel</div>
+                <p> Este é um Crud básico feito para estudo</p>
 
             </div>
         </div>
