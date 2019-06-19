@@ -38,7 +38,7 @@
                         {!! Form::input('text', 'endereco', null, ['class'=> 'form-control', 'autofocus', 'placeholder'=> "Endereço"]) !!}
                         <br>
                         {!! Form::label('numero', "Numero") !!}
-                        {!! Form::input('text', 'numero', null, ['class'=> 'form-control', 'autofocus', 'placeholder'=> "Número"]) !!}
+                        {!! Form::input('number', 'numero', null, ['class'=> 'form-control', 'autofocus', 'placeholder'=> "Número"]) !!}
                         <br>
                         {!! Form::submit('Salvar', ['class'=> 'btn btn-primary'] )!!}
                         {!! Form::close() !!}
