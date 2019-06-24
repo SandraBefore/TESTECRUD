@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\cliente;
+use App\Compra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class ClientesController extends Controller
 {
-    function index(){
+    function lista(){
         $clientes= cliente::get();
 
 
@@ -57,5 +58,7 @@ class ClientesController extends Controller
 
         return Redirect::to('clientes/');
     }
+
+
 
 }

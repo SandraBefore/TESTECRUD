@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Cadastro
+                    <div class="card-header">Cadastro de compra
                         <a class="float-right" href="{{url('clientes')}}">Listagem de Clientes</a>
 
                     </div>
@@ -23,29 +23,22 @@
                             {!! Form::model($cliente, ['method'=>'PATCH', 'url' =>'clientes/'.$cliente->id]) !!}
 
                         @else
-                            {!! Form::open(array('url' => 'clientes/salvar') ) !!}
+                            {!! Form::open(array('url' => 'compras/salvar') ) !!}
                         @endif
 
-                       <h2>Formulário</h2> <br>
-
-
-
-
-                        {!! Form::label('nome', "Nome") !!}
-                        {!! Form::input('text', 'nome', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Nome"]) !!}
+                        {!! Form::label('quantidade', "Quantidade") !!}
+                        {!! Form::number('quantidade', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Quantidade"]) !!}
                         <br>
-                        {!! Form::label('endereco', "  Endereço") !!}
-                        {!! Form::input('text', 'endereco', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Endereço"]) !!}
+                        {!! Form::label('valor', "Valor") !!}
+                        {!! Form::number('valor', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Valor"]) !!}
                         <br>
-                        {!! Form::label('numero', "Numero") !!}
-                        {!! Form::input('number', 'numero', null, ['class'=> 'form-control', 'required','autofocus', 'placeholder'=> "Número"]) !!}
-                        <br>
+
                         {!! Form::submit('Salvar', ['class'=> 'btn btn-primary'] )!!}
                         {!! Form::close() !!}
 
 
                     </div>
+                </div>
             </div>
         </div>
-    </div>
 @endsection
