@@ -1099,16 +1099,16 @@
     <table id="290" parent="3" name="clientes">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="291" parent="3" name="migrations">
+    <table id="291" parent="3" name="compras">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="292" parent="3" name="password_resets">
+    <table id="292" parent="3" name="migrations">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="293" parent="3" name="users">
+    <table id="293" parent="3" name="password_resets">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="294" parent="3" name="usuarios">
+    <table id="294" parent="3" name="users">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <column id="295" parent="229" name="CHARACTER_SET_NAME">
@@ -3951,7 +3951,7 @@
     </column>
     <column id="901" parent="290" name="id">
       <Position>1</Position>
-      <DataType>int(10) unsigned|0s</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -3989,163 +3989,160 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="908" parent="291" name="id">
+    <column id="908" parent="291" name="idCompras">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="909" parent="291" name="migration">
+    <column id="909" parent="291" name="idClientes">
+      <Position>2</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="910" parent="291" name="created_at">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="911" parent="291" name="updated_at">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="912" parent="291" name="quantidade">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="913" parent="291" name="valor">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="914" parent="291" name="compras_idclientes_foreign">
+      <ColNames>idClientes</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="915" parent="291" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idCompras</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="916" parent="291" name="compras_idclientes_foreign">
+      <ColNames>idClientes</ColNames>
+      <RefSchemaName>laravel</RefSchemaName>
+      <RefTableName>clientes</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="917" parent="292" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="918" parent="292" name="migration">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="910" parent="291" name="batch">
+    <column id="919" parent="292" name="batch">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="911" parent="291" name="PRIMARY">
+    <key id="920" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="912" parent="292" name="email">
+    <column id="921" parent="293" name="email">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="913" parent="292" name="token">
+    <column id="922" parent="293" name="token">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="914" parent="292" name="created_at">
+    <column id="923" parent="293" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="915" parent="292" name="password_resets_email_index">
+    <index id="924" parent="293" name="password_resets_email_index">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="916" parent="293" name="id">
+    <column id="925" parent="294" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="917" parent="293" name="name">
+    <column id="926" parent="294" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="918" parent="293" name="email">
+    <column id="927" parent="294" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="919" parent="293" name="email_verified_at">
+    <column id="928" parent="294" name="email_verified_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="920" parent="293" name="password">
+    <column id="929" parent="294" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="921" parent="293" name="remember_token">
+    <column id="930" parent="294" name="remember_token">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="922" parent="293" name="created_at">
+    <column id="931" parent="294" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="923" parent="293" name="updated_at">
+    <column id="932" parent="294" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="924" parent="293" name="users_email_unique">
+    <index id="933" parent="294" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="925" parent="293" name="PRIMARY">
+    <key id="934" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="926" parent="293" name="users_email_unique">
+    <key id="935" parent="294" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
-    </key>
-    <column id="927" parent="294" name="id">
-      <Position>1</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="928" parent="294" name="nome">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="929" parent="294" name="email">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="930" parent="294" name="senha">
-      <Position>4</Position>
-      <DataType>varchar(60)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="931" parent="294" name="remember_token">
-      <Position>5</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="932" parent="294" name="created_at">
-      <Position>6</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="933" parent="294" name="updated_at">
-      <Position>7</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="934" parent="294" name="usuarios_email_unique">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="935" parent="294" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="936" parent="294" name="usuarios_email_unique">
-      <ColNames>email</ColNames>
-      <UnderlyingIndexName>usuarios_email_unique</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
