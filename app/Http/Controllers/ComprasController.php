@@ -5,32 +5,32 @@ namespace App\Http\Controllers;
 use App\Cliente;
 use App\Compra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class ComprasController extends Controller
 {
-    function vendas($id)
+
+
+    public function listaCompras($id)
     {
-
-
-        $cliente = cliente::findOrFail($id);
+      $cliente = cliente::findOrFail($id);
+//        $compras = $cliente->compras()->get();
         $compras = Compra::get();
-
-
-
         return view('compras.vendas', ['cliente'=>$cliente], ['compras'=>$compras]);
     }
 
-    function comprar($id){
-        $cliente = Cliente::findOrFail($id);
-        return view('compras.formCompras', ['cliente'=>$cliente]);
+    public function comprar($id){
+        $cliente = cliente::findOrFail($id);
+        return view('compras.formCompras');
     }
 
 
-    function salvar(Request $request){
-        $compras= new Compra();
+    public function salvarCompras(Request $request){
 
-        $compras = $compras->create($request->all());
 
-        return redirect::to('clientes/{cliente}/vendas');
+       //Compra::inserir($request);
+
+        return view('welcome');
     }
 }

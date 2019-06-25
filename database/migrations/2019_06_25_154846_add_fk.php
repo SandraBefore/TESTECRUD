@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComprasTable extends Migration
+class AddFk extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateComprasTable extends Migration
      */
     public function up()
     {
-        Schema::create('compras', function (Blueprint $table) {
-            $table->increments('idCompras');
-            $table->timestamps();
-            $table->integer('quantidade');
-            $table->integer('valor');
+        Schema::table('compras', function (Blueprint $table) {
+            //
         });
     }
 
@@ -28,6 +25,8 @@ class CreateComprasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras');
+        Schema::table('compras', function (Blueprint $table) {
+            //
+        });
     }
 }
