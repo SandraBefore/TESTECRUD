@@ -23,8 +23,10 @@
                             {!! Form::model($cliente, ['method'=>'PATCH', 'url' =>'clientes/'.$cliente->id]) !!}
 
                         @else
-                            {!! Form::open(array('url' => 'compras/salvar') ) !!}
+                            {!! Form::open(array('url' => 'compras/salvarCompras') )!!}
                         @endif
+
+
 
                         {!! Form::label('quantidade', "Quantidade") !!}
                         {!! Form::number('quantidade', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Quantidade"]) !!}

@@ -47,13 +47,13 @@
                                 <td>{{$compra->idCompras}}</td>
                                 <td>{{$compra->quantidade}}</td>
                                 <td>{{$compra->valor}}</td>
-                                <td>
-                                    <a href="/clientes/{{$cliente->id}}/editar" class="btn btn-dark btn-sm">Editar </a> <br>
+{{--                                <td>--}}
+{{--                                    <a href="/clientes/{{$cliente->id}}/editar" class="btn btn-dark btn-sm">Editar </a> <br>--}}
 
-                                    {!! Form::open(['method'=>'delete', 'url'=> '/clientes/'.$cliente->id.'/excluir']) !!}
-                                    <button type="submit" class="btn btn-dark btn-sm">Excluir </button>
-                                    {!! Form::close() !!}
-                                </td>
+{{--                                    {!! Form::open(['method'=>'delete', 'url'=> '/clientes/'.$cliente->id.'/excluir']) !!}--}}
+{{--                                    <button type="submit" class="btn btn-dark btn-sm">Excluir </button>--}}
+{{--                                    {!! Form::close() !!}--}}
+{{--                                </td>--}}
                             </tr>
                             @endforeach
                         </table>
