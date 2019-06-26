@@ -14,7 +14,13 @@ class AddFk extends Migration
     public function up()
     {
         Schema::table('compras', function (Blueprint $table) {
-            //
+
+            $table -> unsignedBigInteger('cliente_id');
+
+            $table -> foreign('cliente_id')
+                   -> references('id')
+                   -> on('clientes')
+                   -> onDelete('CASCADE');
         });
     }
 
@@ -26,7 +32,7 @@ class AddFk extends Migration
     public function down()
     {
         Schema::table('compras', function (Blueprint $table) {
-            //
+            // remover a foreing key
         });
     }
 }

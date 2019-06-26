@@ -44,7 +44,11 @@ Route::delete('clientes/{cliente}/excluir', 'ClientesController@excluir');
 
 Route::get('clientes/{cliente}/vendas', 'ComprasController@listaCompras');
 
+
 Route::get('compras/{cliente}/comprar', 'ComprasController@comprar');
 
+
 Route::post('compras/salvarCompras','ComprasController@salvarCompras');
+
+Route::delete('compras/{id_compra}/excluir','ComprasController@excluir');
 

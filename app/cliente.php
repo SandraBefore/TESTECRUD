@@ -27,7 +27,7 @@ class Cliente extends Model
         $cliente = $cliente->create ($request->all());
 
     }
-
+    //define relacionamento
     public function compras(){
 
         return $this -> hasMany(Compra::class);
