@@ -27,6 +27,9 @@
                         @endif
 
 
+                            {!! Form::label('Identificador', "identificador do Cliente") !!}
+                            {!! Form::number('cliente_id', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Identificador do Cliente"]) !!}
+                            <br>
 
                         {!! Form::label('quantidade', "Quantidade") !!}
                         {!! Form::number('quantidade', null, ['class'=> 'form-control','required', 'autofocus', 'placeholder'=> "Quantidade"]) !!}
