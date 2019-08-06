@@ -8,14 +8,14 @@ class Cliente extends Model
 {
     protected $fillable = ['nome', 'endereco', 'numero'];
 
-    public static function atualizar($id, $request){
+    public function atualizar($id, $request){
 
         $cliente = cliente::findorFail($id);
         $cliente->update($request->all());
 
     }
 
-    public static function excluir($id){
+    public function excluir($id){
 
         $cliente = cliente::findOrFail($id);
         $cliente->delete();
@@ -24,7 +24,7 @@ class Cliente extends Model
     public static function inserir($request){
 
         $cliente = new cliente();
-        $cliente = $cliente->create ($request->all());
+        $cliente->create ($request->all());
 
     }
     //define relacionamento
