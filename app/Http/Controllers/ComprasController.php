@@ -29,6 +29,8 @@ class ComprasController extends Controller
     public function salvarCompras(Request $request){
 
         $id = $request -> input('cliente_id');
+
+        //mantive o método estático para não precisar criar uma instacia na controller e deixar tudo no Model
         Compra::inserir($request);
 
         Session::flash('mensagem_sucesso', 'Compra cadastrada com Sucesso!');
@@ -42,7 +44,7 @@ class ComprasController extends Controller
         $compra = Compra::findOrFail($idCompras);
         $cliente_id = $compra['cliente_id'];
 
-        Compra::excluir($compra);
+        $compra -> excluir($compra);
 
 
         Session::flash('mensagem_sucesso', 'Compra ecxluida com Sucesso!');

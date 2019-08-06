@@ -2,19 +2,19 @@
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
-      <ServerVersion>5.7.26</ServerVersion>
+      <ServerVersion>5.7.27</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="information_schema">
       <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
+      <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="laravel">
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
+      <Visible>1</Visible>
     </schema>
     <schema id="4" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
@@ -3989,7 +3989,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="908" parent="291" name="idCompras">
+    <column id="908" parent="291" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
@@ -4030,12 +4030,11 @@
     </index>
     <key id="915" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>idCompras</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="916" parent="291" name="compras_cliente_id_foreign">
       <ColNames>cliente_id</ColNames>
-      <RefSchemaName>laravel</RefSchemaName>
       <RefTableName>clientes</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>

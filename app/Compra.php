@@ -20,9 +20,7 @@ class Compra extends Model
     /**
      * @param $idCompras
      */
-    public static function excluir($compras){
-
-
+    public function excluir($compras){
 
         $compras -> delete();
     }
