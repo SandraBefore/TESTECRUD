@@ -9,43 +9,48 @@ use Illuminate\Support\Facades\Session;
 
 class ClientesController extends Controller
 {
-    function lista(){
-
-        $clientes= cliente::get();
+    function lista()
+    {
+        $clientes = cliente::get();
         return view('clientes.lista', ['clientes' => $clientes]);
     }
-    function novo(){
 
+    function novo()
+    {
         return view('clientes.formulario');
     }
-    function salvar(request $request){
 
-       cliente::inserir($request);
-       Session::flash('mensagem_sucesso', 'Cliente Cadastrado com sucesso!');
-       return Redirect::to('clientes/novo');
+    function salvar(request $request)
+    {
+        cliente::inserir($request);
+        Session::flash('mensagem_sucesso', 'Cliente Cadastrado com sucesso!');
+        return Redirect::to('clientes/novo');
     }
-    function editar($id){
 
+    function editar($id)
+    {
         $cliente = cliente::findorFail($id);
-        return view('clientes.formulario', ['cliente'=>$cliente]);
+        return view('clientes.formulario', ['cliente' => $cliente]);
     }
-    function atualizar($id, Request $request){
+
+    function atualizar($id, Request $request)
+    {
 
         $cliente = cliente::findOrfail($id);
-        $cliente -> atualizar($id, $request);
+        $cliente->atualizar($id, $request);
 
         Session::flash('mensagem_sucesso', 'Cliente Atualizado com sucesso!');
-        return Redirect::to('clientes/'.$id.'/editar');
+        return Redirect::to('clientes/' . $id . '/editar');
     }
-    function excluir($id){
 
-        $cliente= cliente::findOrFail($id);
-        $cliente -> excluir($id);
+    function excluir($id)
+    {
+        $cliente = cliente::findOrFail($id);
+        $cliente->excluir($id);
 
         Session::flash('mensagem_sucesso', 'Cliente excluído com sucesso!');
         return Redirect::to('clientes/');
     }
-
 
 
 }
