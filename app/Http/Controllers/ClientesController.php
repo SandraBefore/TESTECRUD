@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\cliente;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\Response as HttpResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -12,14 +14,14 @@ class ClientesController extends Controller
     function lista()
     {
         $clientes = cliente::get();
-        return view('clientes.lista', ['clientes' => $clientes]);
+        return Response::json(['clientes' => $clientes], HttpResponse::HTTP_OK);
     }
-
+/////////////////////////////
     function novo()
     {
         return view('clientes.formulario');
     }
-
+///////////////////////////////////////////
     function salvar(request $request)
     {
         cliente::inserir($request);
