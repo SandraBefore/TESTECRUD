@@ -12,43 +12,40 @@
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view( 'app');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{any?}', function (){
+    return view('app');
+})->where('any', '^(?!api\/)[\/\w\.-]*');
 
-///////////////////////////////////////////////////////
-/// Clientes
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// ///////////////////////////////////////////////////////
+// /// Clientes
 
-Route::get ('clientes', 'ClientesController@lista');
+// Auth::routes();
 
+// Route::get ('clientes', 'ClientesController@lista');
 
-Route::get ('clientes/novo', 'ClientesController@novo');
+// Route::get ('clientes/novo', 'ClientesController@novo');
 
+// Route::post ('clientes/salvar', 'ClientesController@salvar');
 
-Route::post ('clientes/salvar', 'ClientesController@salvar');
+// Route::get ('clientes/{cliente}/editar', 'ClientesController@editar');
 
+// //atualizar
+// Route::patch('clientes/{cliente}', 'ClientesController@atualizar');
 
-Route::get ('clientes/{cliente}/editar', 'ClientesController@editar');
+// Route::delete('clientes/{cliente}/excluir', 'ClientesController@excluir');
 
-//atualizar
-Route::patch('clientes/{cliente}', 'ClientesController@atualizar');
+// /////////////////////////////////////////////////////////
+// /// Compras
+// Route::get('clientes/{cliente}/vendas', 'ComprasController@listaCompras');
 
+// Route::get('compras/{cliente}/comprar', 'ComprasController@comprar');
 
-Route::delete('clientes/{cliente}/excluir', 'ClientesController@excluir');
+// Route::post('compras/salvarCompras','ComprasController@salvarCompras');
 
-/////////////////////////////////////////////////////////
-/// Compras
-
-Route::get('clientes/{cliente}/vendas', 'ComprasController@listaCompras');
-
-
-Route::get('compras/{cliente}/comprar', 'ComprasController@comprar');
-
-
-Route::post('compras/salvarCompras','ComprasController@salvarCompras');
-
-Route::delete('compras/{id_compra}/excluir','ComprasController@excluir');
+// Route::delete('compras/{id_compra}/excluir','ComprasController@excluir');
 

@@ -1,35 +1,41 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
+import Vue from 'vue'
+import App from './App.vue'
 
-window.Vue = require('vue');
+import router from './router'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+// import lottie from 'lottie-web'
+// import '/axios'
+// import './plugins/datefns'
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+window.Vue = Vue
+Vue.router = router
+Vue.component('batata', App)
 
-Vue.component('lista', require('./components/ListaClientes.vue').default);
-Vue.component('pingalote',{
-    template: '<p> I am a example pigalote..</p>'
-})
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// window.VueRouter=require('vue-router').default;
+// window.VueAxios=require('vue-axios').default;
+// window.Axios=require('axios').default;
+
+
+// Vue.use(VueRouter, VueAxios, axios);
+// const routes = [
+//     {
+//         name: 'Teste',
+//         path: '/teste',
+//         component: teste
+//     },
+// ];
+// const router = new VueRouter({ mode: 'history', routes: routes});
+
+// const lista = Vue.component(require('./components/ListaClientes.vue').default);
+// const testes = Vue.component('Teste', {template: 'Pingalote'});
+
+// let AppLayout = require('./components/ListaClientes.vue');
+// new Vue(
+//     Vue.util.extend({router}, AppLayout)
+// ).$mount('#app');
 
 const app = new Vue({
-    el: '#app'
-});
+    el:'#app',
+    router
+})

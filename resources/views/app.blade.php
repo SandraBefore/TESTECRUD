@@ -3,20 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <script>window.laravel = {csrfToken: '{{ csrf_token() }}'}</script>
 
         <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     </head>
 
     <body>
 
     <div id="app">
-        <pingalote></pingalote>
-        <lista></lista>
-
+        <batata></batata>
+        <!-- estou no app.blade -->
+        <!-- <br> -->
+        <!-- <router-link class="btn btn-info btn-xs" v-bind:to="{name:'clientes'}">Clientes</router-link> -->
     </div>
 
     <script src="{{ asset('js/app.js')}}"></script>

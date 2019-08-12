@@ -1,17 +1,9 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                      <pingalote></pingalote>
-                    </div>
-                </div>
-            </div>
+        <div >
+           <p> I am a example pingalote..</p>
         </div>
-    </div>
+ </div>
 </template>
 
 <script>
