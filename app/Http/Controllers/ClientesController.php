@@ -16,42 +16,35 @@ class ClientesController extends Controller
         $clientes = cliente::get();
         return Response::json(['clientes' => $clientes], HttpResponse::HTTP_OK);
     }
-/////////////////////////////
-    function novo()
-    {
-        return view('clientes.formulario');
-    }
-///////////////////////////////////////////
+
     function salvar(request $request)
     {
         cliente::inserir($request);
-        Session::flash('mensagem_sucesso', 'Cliente Cadastrado com sucesso!');
-        return Redirect::to('clientes/novo');
+        $mensagem = 'Cliente cadastrado com sucesso.';
+        return Response::json(['cliente' => $cliente], HttpResponse::HTTP_OK);
     }
 
-    function editar($id)
+    function buscaCliente($id)
     {
         $cliente = cliente::findorFail($id);
-        return view('clientes.formulario', ['cliente' => $cliente]);
+       return Response::json(['cliente' => $cliente], HttpResponse::HTTP_OK);
     }
 
     function atualizar($id, Request $request)
     {
-
         $cliente = cliente::findOrfail($id);
         $cliente->atualizar($id, $request);
 
-        Session::flash('mensagem_sucesso', 'Cliente Atualizado com sucesso!');
-        return Redirect::to('clientes/' . $id . '/editar');
+        $mensagem = 'Cliente atualizado com sucesso.';
+        return Response::json(['cliente' => $mensagem], HttpResponse::HTTP_OK);
     }
 
     function excluir($id)
     {
         $cliente = cliente::findOrFail($id);
         $cliente->excluir($id);
-
-        Session::flash('mensagem_sucesso', 'Cliente excluído com sucesso!');
-        return Redirect::to('clientes/');
+        $mensagem = 'Cliente cadastrado com sucesso.';
+        return Response::json(['cliente' => $mensagem], HttpResponse::HTTP_OK);
     }
 
 

@@ -28,5 +28,6 @@ export default new Router({
             name: 'compras',
             component: listaCompras
         }
+        
     ]
 })

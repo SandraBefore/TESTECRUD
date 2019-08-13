@@ -14,10 +14,7 @@
     <body>
 
     <div id="app">
-        <batata></batata>
-        <!-- estou no app.blade -->
-        <!-- <br> -->
-        <!-- <router-link class="btn btn-info btn-xs" v-bind:to="{name:'clientes'}">Clientes</router-link> -->
+        <index></index>
     </div>
 
     <script src="{{ asset('js/app.js')}}"></script>

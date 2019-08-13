@@ -1,17 +1,22 @@
 <template>
   <div class="container">
-    <div class="card-header">Lista de Clientes</div>
-    <div>
-      <br />
-    </div>
-    <div>
-      <ul>
-        <h4>Nome</h4>
-        <li>{{clientes}}</li>
-      </ul>
+     <v-card class="d-inline-flex pa-2">
+      <v-simple-table>
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="cliente in clientes" :key="cliente.nome">
+            <th>{{ cliente.nome }}</th>
+            <th><v-btn @click="listaCompras">Compras</v-btn></th>
+          </tr>
+        </tbody>
 
-       <button @click="listaCompras">Compras</button>
-    </div>
+      </v-simple-table>
+     </v-card>
   </div>
 </template>
 
@@ -30,7 +35,7 @@ export default {
   mounted() {
     console.log("Componente"),
       axios
-        .get("/clientes")
+        .get("/api/clientes")
         .then(response => (this.clientes = response.data.clientes));
   }
 };

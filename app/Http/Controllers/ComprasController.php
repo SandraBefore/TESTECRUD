@@ -6,6 +6,8 @@ use App\Cliente;
 use App\Compra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\Response as HttpResponse;
 
 
 class ComprasController extends Controller
@@ -17,13 +19,13 @@ class ComprasController extends Controller
       $cliente = cliente::findOrFail($id);
       $compras = $cliente->compras()->get();
 
-        return view('compras.vendas', ['cliente'=>$cliente], ['compras'=>$compras]);
+      return Response::json(['compras'=>$compras], HttpResponse::HTTP_OK);
     }
     //salvar
-    public function comprar(){
+    // public function comprar(){
 
-        return view('compras.formCompras');
-    }
+    //     return view('compras.formCompras');
+    // }
 
 
     public function salvarCompras(Request $request){
