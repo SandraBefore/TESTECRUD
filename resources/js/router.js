@@ -2,10 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // import pages
-import home from './pages/home.vue'
-
-import listaCliente from './components/ListaClientes.vue'
-import listaCompras from './components/ListaCompras.vue'
+import home from './pages/Home.vue'
+import listagemCliente from './pages/ListagemClientes.vue'
+import listagemCompras from './pages/ListagemCompras.vue'
 
 
 Vue.use(Router)
@@ -19,14 +18,15 @@ export default new Router({
             component: home
         },
         {
-            path: '/listaClientes',
+            path: '/listagemClientes',
             name: 'clientes',
-            component: listaCliente
+            component: listagemCliente
         },
         {
-            path: '/listaCompras',
+            path: '/listaCompras/',
             name: 'compras',
-            component: listaCompras
+            component: listagemCompras,
+            props: true
         }
         
     ]
