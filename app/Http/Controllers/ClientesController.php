@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\cliente;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 class ClientesController extends Controller
 {
@@ -19,9 +16,10 @@ class ClientesController extends Controller
 
     function salvar(request $request)
     {
+//        dd($request);
         cliente::inserir($request);
         $mensagem = 'Cliente cadastrado com sucesso.';
-        return Response::json(['cliente' => $cliente], HttpResponse::HTTP_OK);
+        return Response::json(['cliente' => $mensagem], HttpResponse::HTTP_OK);
     }
 
     function buscaCliente($id)
